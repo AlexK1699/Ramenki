@@ -1,3 +1,6 @@
+// Visibilité de la classe:
+// public class Appartement → visible partout
+// class Appartement        → visible dans le même paquetage seulement
 public class Appartement implements Louable, Comparable {
     private String adresse;
     private int pieces;
@@ -33,6 +36,11 @@ public class Appartement implements Louable, Comparable {
     public void setAdresse(String adresse) { this.adresse = adresse; }
     public void setPieces(int pieces)      { this.pieces = pieces; }
 
+    // this в обычном методе — различает атрибут и параметр
+    public boolean memeAdresse(String adresse) {
+        return this.adresse.equals(adresse);
+    }
+
     public void louer()   { this.loue = true; }
     public void liberer() { this.loue = false; }
 
@@ -47,7 +55,7 @@ public class Appartement implements Louable, Comparable {
         return this.pieces - autre.getPieces();
     }
 
-    // Перегрузка методов (surcharge)
+    // Polymorphisme ad-hoc — même nom, signatures différentes!
     public String description() {
         return "Appartement : " + adresse + " - " + pieces + " pièces";
     }

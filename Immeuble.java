@@ -11,4 +11,10 @@ public class Immeuble extends BienImmobilier {
     public double prixTotal() {
         return nbAppartements * prixParAppart;
     }
+
+    // protected — доступ к атрибуту суперкласса напрямую!
+    public String description() {
+        return "Immeuble à " + adresse + " - " + nbAppartements + " appartements";
+        //                      ↑ без геттера! adresse protected в BienImmobilier
+    }
 }

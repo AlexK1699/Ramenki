@@ -216,6 +216,15 @@ public class Ramenki {
             System.out.println("NullPointerException : référence nulle!");
         }
 
+        // this в обычном методе
+        System.out.println(apt.memeAdresse("Lobachevski")); // true
+        System.out.println(apt.memeAdresse("Vernadskogo")); // false
+
+        Appartement aptGC = new Appartement("Ozernaya", 2);
+        aptGC = null;           // убираем ссылку
+        System.gc();            // просим GC собрать мусор
+        System.out.println("GC demandé — finalize() peut être appelé");
+
         // PROG1-5 | УРОК 5 — Héritage
         AppartementLuxe al = new AppartementLuxe("Vernadskogo", 4, "piscine, concierge");
         System.out.println(al);
@@ -231,6 +240,11 @@ public class Ramenki {
                 System.out.println("  → c'est un appartement luxe!");
             }
         }
+
+        // Polymorphisme ad-hoc — même nom, signatures différentes, sans héritage
+        // Le compilateur choisit la méthode selon le TYPE des paramètres!
+        System.out.println(apt.description());              // → description()
+        System.out.println(apt.description("vue sur parc")); // → description(String)
 
         // abstract + polymorphisme + final
         BienImmobilier[] biens = new BienImmobilier[2];
@@ -304,6 +318,10 @@ public class Ramenki {
         for (int m = 0; m < appts.length; m++) {
             System.out.println(appts[m]);
         }
+
+        // protected — accès direct à l'attribut du superclasse sans getter
+        Immeuble imm = new Immeuble("Vernadskogo", 10, 120000.0);
+        System.out.println(imm.description());
 
         // PROG2-1 | Généricité
         Paire<String> stationsMetro = new Paire<String>("Ramenki", "Michurinski");
