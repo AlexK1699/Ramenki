@@ -1,5 +1,5 @@
 public abstract class BienImmobilier {
-    private String adresse;
+    protected String adresse;  // protected — виден в подклассах!
 
     public BienImmobilier(String adresse) {
         this.adresse = adresse;

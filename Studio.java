@@ -9,4 +9,9 @@ public final class Studio extends BienImmobilier {
     public double prixTotal() {
         return loyer;
     }
+
+    public double prixTotal() {
+        System.out.println("Adresse : " + adresse); // ✅ protected — виден!
+        return loyer;
+    }
 }
