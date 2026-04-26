@@ -15,6 +15,7 @@ public class Appartement implements Louable, Comparable {
         this.pieces  = pieces;
         this.loue    = false;
         nombreAppartements++;
+        System.out.println("Constructeur Appartement : " + adresse);
     }
 
     public Appartement(String adresse) {
@@ -32,22 +33,49 @@ public class Appartement implements Louable, Comparable {
     public void setAdresse(String adresse) { this.adresse = adresse; }
     public void setPieces(int pieces)      { this.pieces = pieces; }
 
+    public void louer()   { this.loue = true; }
+    public void liberer() { this.loue = false; }
+
     public void verifierPieces(int pieces) throws IllegalArgumentException {
         if (pieces <= 0)
             throw new IllegalArgumentException("Le nombre de pièces doit être positif");
         this.pieces = pieces;
     }
 
-    public void louer()   { this.loue = true; }
-    public void liberer() { this.loue = false; }
-
     public int compareTo(Object obj) {
         Appartement autre = (Appartement) obj;
         return this.pieces - autre.getPieces();
     }
 
+    // Перегрузка методов (surcharge)
+    public String description() {
+        return "Appartement : " + adresse + " - " + pieces + " pièces";
+    }
+
+    public String description(String extra) {
+        return "Appartement : " + adresse + " - " + pieces + " pièces - " + extra;
+    }
+
+    // return в void методе
+    public void afficherSiGrand() {
+        if (pieces < 3) {
+            System.out.println("Trop petit !");
+            return;
+        }
+        System.out.println(adresse + " est un grand appartement !");
+    }
+
+    // final метод — нельзя переопределить в подклассе!
+    public final String typeLogement() {
+        return "Appartement standard";
+    }
+
     public String toString() {
         return adresse + " - " + pieces + " pièces" +
                 (loue ? " [loué]" : " [libre]");
+    }
+
+    protected void finalize() {
+        System.out.println("Appartement " + adresse + " supprimé de la mémoire");
     }
 }
