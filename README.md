@@ -12,12 +12,17 @@ Simulation d'un district immobilier de Ramenki (Moscou) en Java.
 - Prog1-4 : Classes et objets
 - Prog1-5 : Héritage et polymorphisme
 - Prog1-6 : Interfaces, paquetages, exceptions
+- Prog2-1 : Généricité
 
 ## Fichiers
 - `Ramenki.java` — classe principale avec main()
-- `Appartement.java` — classe avec implements Louable, Comparable
+- `Appartement.java` — implements Louable, Comparable
 - `AppartementLuxe.java` — sous-classe de Appartement
 - `BienImmobilier.java` — classe abstraite
 - `Studio.java` — classe finale
-- `Immeuble.java` — classe héritant de BienImmobilier
+- `Immeuble.java` — hérite de BienImmobilier
 - `Louable.java` — interface
+- `Paire.java` — classe générique Paire<T>
+- `PaireHetero.java` — classe générique Paire<T, U>
+- `Parking.java` — exemple constructeur par défaut
+- `Garage.java` — exemple erreur compilation
