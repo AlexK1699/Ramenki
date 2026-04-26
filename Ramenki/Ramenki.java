@@ -19,6 +19,10 @@ public class Ramenki {
         System.out.println(p.getPremier() + " : " + p.getSecond());
     }
 
+    public static void afficheSuper(PaireHetero<String, ? super String> p) {
+        System.out.println(p.getPremier() + " / " + p.getSecond());
+    }
+
     public static void main(String[] args) {
 
         // PROG1-1 | УРОК 1
@@ -363,5 +367,18 @@ public class Ramenki {
         PaireHetero<String, Double>  sp2 = new PaireHetero<String, Double>("Michurinski", 75000.5);
         afficheNombre(sp1); // ✅ Integer extends Number
         afficheNombre(sp2); // ✅ Double extends Number
+
+        // Effacement — стирание типов
+        // instanceof работает только с сырым типом!
+        Paire<String> ps = new Paire<String>("Ramenki", "Michurinski");
+        System.out.println(ps instanceof Paire);          // ✅ OK
+        // System.out.println(ps instanceof Paire<String>); // ❌ ОШИБКА КОМПИЛЯЦИИ!
+        System.out.println("Effacement : " + (ps instanceof Paire));
+
+        // <? super String> — wildcard borné par le bas
+        PaireHetero<String, String> psup  = new PaireHetero<String, String>("Ramenki", "Michurinski");
+        PaireHetero<String, Object> psup2 = new PaireHetero<String, Object>("Ozernaya", "Govorovo");
+        afficheSuper(psup);  // ✅ String super String
+        afficheSuper(psup2); // ✅ Object super String
     }
 }
