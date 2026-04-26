@@ -225,6 +225,14 @@ public class Ramenki {
         System.gc();            // просим GC собрать мусор
         System.out.println("GC demandé — finalize() peut être appelé");
 
+        // Метод вызывает другой метод через this
+        System.out.println(apt.resume());
+
+        // Атрибуты-омонимы — pieces в AppartementLuxe скрывает pieces в Appartement
+        // Плохая практика но не ошибка компиляции!
+        AppartementLuxe alOmo = new AppartementLuxe("Ozernaya", 3, "spa");
+        System.out.println("pieces via getPieces() : " + alOmo.getPieces()); // из Appartement
+
         // PROG1-5 | УРОК 5 — Héritage
         AppartementLuxe al = new AppartementLuxe("Vernadskogo", 4, "piscine, concierge");
         System.out.println(al);

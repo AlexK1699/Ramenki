@@ -86,4 +86,11 @@ public class Appartement implements Louable, Comparable {
     protected void finalize() {
         System.out.println("Appartement " + adresse + " supprimé de la mémoire");
     }
+
+    // Метод вызывает другой метод через this
+    public String resume() {
+        return this.description() + " | " + this.typeLogement();
+        // this.description() — явный вызов через this
+        // this.typeLogement() — явный вызов через this
+    }
 }
