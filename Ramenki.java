@@ -7,6 +7,15 @@ public class Ramenki {
         a.setPieces(999);
     }
 
+    // обобщённый метод
+    public static <T> T choix(T a, T b) {
+        return (int)(Math.random() * 2) == 1 ? a : b;
+    }
+
+    public static void affichePaire(Paire<?> p) {
+        System.out.println(p.getPremier() + " / " + p.getSecond());
+    }
+
     public static void main(String[] args) {
 
         // PROG1-1
@@ -218,5 +227,24 @@ public class Ramenki {
         for (int m = 0; m < appts.length; m++) {
             System.out.println(appts[m]);
         }
+
+        // PROG2-1 | Généricité
+        Paire<String> stationsMetro = new Paire<String>("Ramenki", "Michurinski");
+        Paire<Integer> prix         = new Paire<Integer>(50000, 120000);
+
+        System.out.println(stationsMetro.getPremier());
+        System.out.println(stationsMetro.getSecond());
+        System.out.println(prix.getPremier());
+
+        // обобщённый метод
+        String station = choix("Ramenki", "Michurinski");
+        System.out.println("Station choisie : " + station);
+
+        System.out.println("Station min : " + stationsMetro.min());
+        System.out.println("Prix min : " + prix.min());
+
+        // Wildcard <?>
+        affichePaire(stationsMetro);
+        affichePaire(prix);
     }
 }
