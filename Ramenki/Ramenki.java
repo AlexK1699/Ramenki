@@ -15,6 +15,10 @@ public class Ramenki {
         System.out.println(p.getPremier() + " / " + p.getSecond());
     }
 
+    public static void afficheNombre(PaireHetero<String, ? extends Number> p) {
+        System.out.println(p.getPremier() + " : " + p.getSecond());
+    }
+
     public static void main(String[] args) {
 
         // PROG1-1 | УРОК 1
@@ -349,5 +353,15 @@ public class Ramenki {
         // Wildcard <?>
         affichePaire(stationsMetro);
         affichePaire(prix);
+
+        // PaireHetero<T, U> — пара разных типов
+        PaireHetero<String, Integer> stationPrix = new PaireHetero<String, Integer>("Ramenki", 50000);
+        System.out.println(stationPrix.getPremier() + " : " + stationPrix.getSecond() + " €");
+
+        // <? extends Number> — wildcard borné
+        PaireHetero<String, Integer> sp1 = new PaireHetero<String, Integer>("Ramenki", 50000);
+        PaireHetero<String, Double>  sp2 = new PaireHetero<String, Double>("Michurinski", 75000.5);
+        afficheNombre(sp1); // ✅ Integer extends Number
+        afficheNombre(sp2); // ✅ Double extends Number
     }
 }
