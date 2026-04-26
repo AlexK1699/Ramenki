@@ -1,7 +1,6 @@
 # Ramenki — Projet Java
 
 Projet pédagogique Java — Master MIASHS DCISS, Université Grenoble Alpes.
-Professeur : Daniel Bardou
 
 ## Description
 Simulation d'un district immobilier de Ramenki (Moscou) en Java.
