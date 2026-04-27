@@ -1,3 +1,5 @@
 .idea/
 out/
 *.class
+*.bin
+ramenki_utf8.txt
