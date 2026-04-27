@@ -113,6 +113,31 @@ public class RamenkiFichiers {
         }
     }
 
+    public static void testerAppend() {
+        try {
+            BufferedWriter bw = new BufferedWriter(
+                    new FileWriter("ramenki_append.txt"));
+
+            bw.append("Vernadskogo")
+                    .append(" - ")
+                    .append('3')
+                    .append(" pièces");
+
+            bw.newLine();
+
+            StringBuffer sb = new StringBuffer("Michurinski");
+            bw.append(sb);
+
+            bw.flush();
+            bw.close();
+
+            System.out.println("Append écrit !");
+
+        } catch (IOException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
 
         // шаг 1 — запись
@@ -146,6 +171,7 @@ public class RamenkiFichiers {
         testerRandomAccess();
         testerPath();
         testerFiles();
+        testerAppend();
     }
 
     public static void ecrireAppartement() {
