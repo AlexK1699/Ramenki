@@ -1,3 +1,5 @@
 *.bin
 ramenki.txt
 ramenki_utf8.txt
+.idea/
+out/
